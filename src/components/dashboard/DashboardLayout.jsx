@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div className="flex bg-gray-100 min-h-screen gap-2">
       {/* Fixed Sidebar */}
-      <div className="h-screen w-64 bg-white shadow-lg border-2 border-gray-200 z-20 rounded-2xl">
+      <div className="h-screen min-w-44 w-48 bg-white shadow-lg border-2 border-gray-200 z-20 rounded-2xl">
         <Sidebar />
       </div>
 
