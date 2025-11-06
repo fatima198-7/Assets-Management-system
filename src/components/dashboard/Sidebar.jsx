@@ -29,7 +29,7 @@ function Sidebar() {
       {/* Add New Button */}
       <div className="flex justify-center border-b border-gray-300 pb-4">
         <button className="mx-auto border border-gray-400 p-2 rounded-md w-[70%] text-left hover:bg-gray-100 transition pl-4">
-          + Add New
+          <Link href="/addNew">+ Add New</Link>
         </button>
       </div>
       <div className="px-4">
