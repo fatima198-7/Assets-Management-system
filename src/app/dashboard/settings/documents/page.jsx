@@ -1,13 +1,12 @@
 import RecentFiles from "@/components/RecentFiles";
 import React from "react";
 
-function page() {
+function Documents() {
   return (
-    <>
-      <div>Settings</div>
+    <div>
       <RecentFiles iconColor="text-gray-300" enableCopyModal={true} />
-    </>
+    </div>
   );
 }
 
-export default page;
+export default Documents;

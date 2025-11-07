@@ -13,13 +13,18 @@ import {
   Copy,
 } from "lucide-react";
 import ShareModal from "@/components/ShareModal";
+import ReplaceFile from "./ReplaceFile";
+import CopyLinkModal from "@/components/CopyLinkModal";
 
-function RecentFiles() {
+function RecentFiles({ iconColor = "text-gray-500", enableCopyModal = false }) {
   const [copiedIndex, setCopiedIndex] = useState(null);
   const [menuIndex, setMenuIndex] = useState(null);
   const [submenuIndex, setSubmenuIndex] = useState(null);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isReplaceOpen, setIsReplaceOpen] = useState(false);
+  // const [enableCopyModal, setEnableCopyModal] = useState(false);
+  const [isCopyModalOpen, setIsCopyModalOpen] = useState(false);
 
   const baseItem = {
     name: "Google Testing.doc",
@@ -28,7 +33,7 @@ function RecentFiles() {
     filesize: "11MB",
   };
 
-  const listItems = Array(20).fill(baseItem);
+  const listItems = Array(15).fill(baseItem);
 
   const copyLink = (text, index) => {
     navigator.clipboard.writeText(text);
@@ -61,7 +66,7 @@ function RecentFiles() {
             {listItems.map((item, index) => (
               <tr
                 key={index}
-                className="odd:bg-white even:bg-sky-50 hover:bg-sky-100 transition"
+                className="group odd:bg-white even:bg-sky-50 hover:bg-sky-100 transition relative"
               >
                 <td className="p-3 align-middle">
                   <input type="checkbox" />
@@ -95,49 +100,43 @@ function RecentFiles() {
                 </td>
 
                 <td className="p-3 text-right align-middle relative w-48">
-                  {/* Hover Mini Icon Row */}
-                  <div className="hidden group-hover:flex items-center gap-2 absolute -left-7 top-1/2 -translate-y-1/2 min-w-[180px] justify-between p-1 rounded">
-                    <Share2
-                      size={16}
-                      className="text-gray-400 hover:scale-110 cursor-pointer"
-                    />
-                    <Edit
-                      size={16}
-                      className="text-gray-400 hover:scale-110 cursor-pointer"
-                    />
-                    <Download
-                      size={16}
-                      className="text-gray-400 hover:scale-110 cursor-pointer"
-                    />
-                    <Star
-                      size={16}
-                      className="text-gray-400 hover:scale-110 cursor-pointer"
-                    />
-                    <Trash
-                      size={16}
-                      className="text-gray-400 hover:scale-110 cursor-pointer"
-                    />
-                    <Ban
-                      size={16}
-                      className="text-gray-400 hover:scale-110 cursor-pointer"
-                    />
+                  {/* Mini Hover Icons */}
+                  <div className="hidden group-hover:flex items-center gap-3 absolute right-9 top-1/2 -translate-y-1/2  px-2 py-1 z-30">
+                    <Share2 size={16} className={`${iconColor}  transition`} />
+                    <Edit size={16} className={`${iconColor}  transition`} />
+                    <Download size={16} className={`${iconColor} transition`} />
+                    <Star size={16} className={`${iconColor}  transition`} />
+                    <Trash size={16} className={`${iconColor}  transition`} />
+                    <Ban size={16} className={`text-gray-500  transition`} />
                   </div>
 
                   {/* Three Dots */}
                   <button
                     className="p-1 hover:bg-white rounded-full transition z-20 relative"
-                    onClick={() =>
-                      setMenuIndex(menuIndex === index ? null : index)
-                    }
+                    onClick={() => {
+                      if (enableCopyModal) {
+                        setSelectedItem(item); // jis file ka modal khulna he
+                        setIsCopyModalOpen(true); // modal open
+                      } else {
+                        setMenuIndex(menuIndex === index ? null : index); // normal dropdown
+                      }
+                    }}
                   >
                     <MoreVertical size={18} className="text-gray-600" />
                   </button>
 
-                  {/* Main Dropdown */}
-                  {menuIndex === index && (
+                  {/* Dropdown */}
+                  {!enableCopyModal && menuIndex === index && (
                     <div className="absolute right-6 top-9 bg-white shadow-sm rounded-md py-1 w-48 z-50">
                       <div className=" border-b border-gray-200">
-                        <button className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full ">
+                        <button
+                          className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full"
+                          onClick={() => {
+                            setSelectedItem(item);
+                            setIsReplaceOpen(true);
+                            setMenuIndex(null);
+                          }}
+                        >
                           Replace
                         </button>
                       </div>
@@ -153,7 +152,6 @@ function RecentFiles() {
                         </button>
                       </div>
 
-                      {/* Nested Share Submenu (opens left) */}
                       <div>
                         <button
                           className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full"
@@ -189,15 +187,6 @@ function RecentFiles() {
                         )}
                       </div>
 
-                      <div>
-                        <button className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full">
-                          <Star size={16} /> Organize
-                        </button>
-                        <button className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full relative border-b border-gray-200">
-                          <Ban size={16} /> Folder Color
-                        </button>
-                      </div>
-
                       <button className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 text-red-600 w-full">
                         <Trash size={16} /> Delete
                       </button>
@@ -210,9 +199,22 @@ function RecentFiles() {
         </table>
       </div>
 
-      {/* Share Modal */}
       {isShareOpen && selectedItem && (
         <ShareModal file={selectedItem} onClose={() => setIsShareOpen(false)} />
+      )}
+
+      {isReplaceOpen && selectedItem && (
+        <ReplaceFile
+          file={selectedItem}
+          onClose={() => setIsReplaceOpen(false)}
+        />
+      )}
+
+      {enableCopyModal && isCopyModalOpen && selectedItem && (
+        <CopyLinkModal
+          file={selectedItem}
+          onClose={() => setIsCopyModalOpen(false)}
+        />
       )}
     </div>
   );
