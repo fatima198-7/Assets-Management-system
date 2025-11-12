@@ -104,7 +104,7 @@ export default function ReplaceFile({ file, onClose }) {
                         ></div>
                       </div>
                       <span className="text-[11px] font-medium text-blue-600">
-                        {file.progress}%
+                        {file.progress}100%
                       </span>
                     </div>
 
@@ -130,11 +130,11 @@ export default function ReplaceFile({ file, onClose }) {
                   {["Google Doc", "Resume", "Testing"].map((tag, i) => (
                     <div
                       key={i}
-                      className="flex items-center text-[11px] bg-white border px-2 py-1 rounded shadow-sm"
+                      className="flex items-center text-[11px] bg-white border border-gray-200 px-2 py-1 rounded shadow-sm"
                     >
                       {tag}
                       <img
-                        src="cancel-01.png"
+                        src="/cancel-01.png"
                         alt="x"
                         className="w-3 h-3 ml-1 cursor-pointer"
                       />

@@ -1,8 +1,17 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+// import element from "../../assets";
 import { useState } from "react";
-import { Clock, Tag, Folder, Star, Trash2, Settings } from "lucide-react";
+import {
+  Clock,
+  Tag,
+  Folder,
+  Star,
+  Trash2,
+  Settings,
+  icons,
+} from "lucide-react";
 
 function Sidebar() {
   const pathname = usePathname();

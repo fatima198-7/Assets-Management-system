@@ -1,12 +1,17 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
 function Page() {
+  const [login, setLogin] = useState(false);
+
+  const onclose = () => {
+    setLogin(true);
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-md z-50 p-4">
-      <div
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md 
-        flex flex-col overflow-hidden box-border transition-all max-h-[90vh]"
-      >
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md flex flex-col overflow-hidden box-border transition-all max-h-[90vh]">
         {/* Close Button */}
         <Link
           href="/"
@@ -58,6 +63,13 @@ function Page() {
                 className="border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-100 p-2 rounded-md w-full outline-none transition"
               />
             </div>
+
+            <Link
+              href="/"
+              className="border border-gray-300 p-2 rounded-md w-full text-center bg-blue-500 hover:bg-blue-600 text-white"
+            >
+              Login
+            </Link>
           </div>
         </div>
       </div>

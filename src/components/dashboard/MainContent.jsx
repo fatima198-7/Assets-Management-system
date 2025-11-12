@@ -93,6 +93,9 @@ function MainContent() {
           </div>
         </div>
       </div>
+      <h1 className="text-2xl font-semibold py-3 flex items-center gap-2">
+        Recent Files
+      </h1>
       <RecentFiles />
     </>
   );

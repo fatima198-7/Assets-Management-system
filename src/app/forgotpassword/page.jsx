@@ -40,7 +40,7 @@ export default function SignIn() {
           <br />
           <Link
             href="/resetpassword"
-            className="border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-100 p-2  rounded-md w-full outline-none transition text-center bg-blue-500 hover:bg-blue-600 text-white"
+            className="border border-gray-300 block focus:border-blue-500 focus:ring focus:ring-blue-100 p-2  rounded-md w-full outline-none transition text-center bg-blue-500 hover:bg-blue-600 text-white"
           >
             Next
           </Link>

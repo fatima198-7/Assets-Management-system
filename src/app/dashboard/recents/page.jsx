@@ -4,7 +4,7 @@ import React from "react";
 function page() {
   return (
     <div>
-      <RecentFiles />
+      <RecentFiles enableCopyModal={false} />
     </div>
   );
 }

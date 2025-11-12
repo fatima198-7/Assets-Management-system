@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import { Copy } from "lucide-react";
-import CloseButton from "./common/CloseButton";
 
 export default function CopyLinkModal({ file, onClose }) {
   const handleCopy = () => {
@@ -12,10 +10,13 @@ export default function CopyLinkModal({ file, onClose }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50 p-4">
       <div className="relative bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden border border-gray-200">
-        {/* Close Button */}
-        <div className="absolute right-4 top-4 z-20">
-          <CloseButton onClick={onClose} />
-        </div>
+        {/* Working Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 text-gray-600 hover:text-black text-xl"
+        >
+          ✕
+        </button>
 
         <div className="p-6 flex flex-col gap-4">
           <h2 className="text-xl font-semibold text-gray-800">Full Link</h2>

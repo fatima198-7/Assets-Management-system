@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import Sidebar from "@/components/dashboard/Sidebar";
+import Header from "@/components/dashboard/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,11 +20,33 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="w-screen">
+    <html lang="en" className="">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full max-w-[1300]`}
+        style={{ scrollbarGutter: "stable" }}
       >
-        <DashboardLayout>{children}</DashboardLayout>;
+        <div className="flex bg-gray-100 gap-2 p-2 overflow-hidden relative transition-all max-h-[99vh]">
+          {/* Sidebar Wrapper */}
+          <div className="h-screen w-48  bg-white shadow-lg border-2 border-gray-200 z-20 rounded-2xl overflow-hidden">
+            <div className="h-full overflow-y-auto scroll-smooth overflow-x-hidden">
+              <Sidebar />
+            </div>
+          </div>
+
+          {/* Content Wrapper */}
+          <div className="flex flex-col flex-1 gap-2 ml-64 h-screen rounded-2xl overflow-hidden">
+            <div className="bg-white border-2 border-gray-200 rounded-2xl">
+              <Header />
+            </div>
+
+            {/* jab scroll bar lgana hai tu us k upr k container ko overflow hidden, rounded  */}
+            <div className="mt-2 bg-white shadow border-2 border-gray-200 flex-1 rounded-2xl  overflow-hidden">
+              <main className="p-6 h-full overflow-y-auto scroll-smooth">
+                {children}
+              </main>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
