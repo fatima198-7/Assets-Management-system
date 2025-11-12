@@ -82,7 +82,7 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
             {listItems.map((item, index) => (
               <tr
                 key={index}
-                className={`group transition relative ${
+                className={`transition relative ${
                   selectedRows.includes(index)
                     ? "bg-gray-200"
                     : "odd:bg-white even:bg-sky-50 hover:bg-sky-100"
@@ -139,42 +139,8 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
                 </td>
 
                 <td className="p-3 text-right align-middle relative w-48">
-                  <div className="hidden group-hover:flex items-center gap-3 absolute -left-5 top-1/2 -translate-y-1/2 px-2 py-1 z-30">
-                    <img
-                      src="/share.svg"
-                      alt="share"
-                      className={`${iconColor} cursor-pointer`}
-                    />
-                    <img
-                      src="/edit.svg"
-                      alt="edit"
-                      className={`${iconColor}`}
-                    />
-                    <img
-                      src="/download.svg"
-                      alt="download"
-                      className={`${iconColor}`}
-                    />
-                    <img
-                      src="/star.svg"
-                      alt="favorite"
-                      className={`${iconColor} cursor-pointer`}
-                      onClick={() => addToFavorites(item, index)}
-                    />
-                    <img
-                      src="/delete.svg"
-                      alt="delete"
-                      className={`${iconColor}`}
-                    />
-                    <img
-                      src="/block.svg"
-                      alt="block"
-                      className={`${iconColor}`}
-                    />
-                  </div>
-
                   <button
-                    className="p-1 hover:bg-white rounded-full transition z-20 relative"
+                    className="p-1 group hover:bg-white rounded-full transition z-20 relative"
                     onClick={() => {
                       if (enableCopyModal) {
                         setSelectedItem(item);
@@ -184,6 +150,40 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
                       }
                     }}
                   >
+                    <div className="hidden group-hover:flex items-center gap-3 absolute -left-45 top-1/2 -translate-y-1/2 px-2 py-1 z-30">
+                      <img
+                        src="/share.svg"
+                        alt="share"
+                        className={`${iconColor} cursor-pointer`}
+                      />
+                      <img
+                        src="/edit.svg"
+                        alt="edit"
+                        className={`${iconColor}`}
+                      />
+                      <img
+                        src="/download.svg"
+                        alt="download"
+                        className={`${iconColor}`}
+                      />
+                      <img
+                        src="/star.svg"
+                        alt="favorite"
+                        className={`${iconColor} cursor-pointer`}
+                        onClick={() => addToFavorites(item, index)}
+                      />
+                      <img
+                        src="/delete.svg"
+                        alt="delete"
+                        className={`${iconColor}`}
+                      />
+                      <img
+                        src="/block.svg"
+                        alt="block"
+                        className={`${iconColor}`}
+                      />
+                    </div>
+
                     <MoreVertical size={18} className="text-gray-600" />
                   </button>
 
@@ -481,7 +481,7 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
                                 setColorMenuIndex(null);
                                 setMenuIndex(null); // dropdown close
                               }}
-                              className="w-3 h-3 rounded-full cursor-pointer border border-gray-300 hover:scale-110 transition"
+                              className="w-3 h-3  rounded-full cursor-pointer border border-gray-300 hover:scale-110 transition"
                               style={{ backgroundColor: color }}
                             ></div>
                           ))}
