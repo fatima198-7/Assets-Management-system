@@ -22,7 +22,7 @@ export default function FavoritesPage() {
   };
 
   return (
-    <div className="p-6 min-h-[99vh]">
+    <div className="p-6 min-h-[99vh] h-full overflow-y-hidden">
       <h2 className="text-2xl font-semibold pb-4">Favorites</h2>
 
       {favorites.length === 0 ? (

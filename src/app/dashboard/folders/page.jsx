@@ -29,6 +29,7 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
   const [infoSubmenuIndex, setInfoSubmenuIndex] = useState(null);
   const [folderColor, setFolderColor] = useState("#6B7280");
   const [colorMenuIndex, setColorMenuIndex] = useState(null);
+  const [isOpenOrganize, setIsOpenOrganize] = useState(false);
 
   const addToFavorites = (item, index) => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -330,7 +331,15 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
                         )}
                       </div>
 
-                      <button className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full">
+                      <button
+                        className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full"
+                        onClick={() => {
+                          setIsOpenOrganize(
+                            isOpenOrganize === index ? null : index
+                          );
+                          setShareSubmenuIndex(null);
+                        }}
+                      >
                         <svg
                           width="16"
                           height="16"
@@ -351,6 +360,59 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
                         </svg>
                         Organize
                       </button>
+                      {isOpenOrganize === index && (
+                        <div className="absolute -left-40 top-48 bg-white shadow-sm rounded-md py-1 w-40 z-50">
+                          <button className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full">
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4.66671 4.66667H11.1667C12.5712 4.66667 13.2734 4.66667 13.7778 5.00373C13.9962 5.14964 14.1837 5.33715 14.3296 5.55553C14.6667 6.05997 14.6667 6.7622 14.6667 8.16667C14.6667 8.33961 14.6667 8.50616 14.6665 8.66667M8.00004 4.66667L7.57775 3.82208C7.2279 3.12238 6.90819 2.41808 6.13288 2.12734C5.7933 2 5.40539 2 4.62956 2C3.41857 2 2.81308 2 2.35875 2.25354C2.03488 2.43428 1.76765 2.70151 1.58692 3.02538C1.33337 3.47971 1.33337 4.0852 1.33337 5.29618V7.33333C1.33337 10.476 1.33337 12.0474 2.30968 13.0237C3.21437 13.9284 4.63 13.9947 7.33337 13.9996"
+                                stroke="#03111E"
+                                stroke-linecap="round"
+                              />
+                              <path
+                                d="M13.0001 10.666C13.3372 10.9937 14.6667 11.8659 14.6667 12.3327M13.0001 13.9993C13.3372 13.6717 14.6667 12.7995 14.6667 12.3327M14.6667 12.3327L9.33341 12.3327"
+                                stroke="#03111E"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                            Move
+                          </button>
+                          <button
+                            className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full"
+                            onClick={() => copyLink(item.link, index)}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_706_31414)">
+                                <path
+                                  d="M9.1518 2.29677L10.325 4.66257C10.485 4.9919 10.9116 5.30779 11.2716 5.36827L13.398 5.72449C14.7578 5.953 15.0778 6.94771 14.0979 7.92898L12.4448 9.59579C12.1648 9.87808 12.0115 10.4225 12.0981 10.8123L12.5714 12.8756C12.9447 14.5089 12.0848 15.1406 10.6516 14.2871L8.65852 13.0974C8.29856 12.8824 7.70529 12.8824 7.33867 13.0974L5.34555 14.2871C3.91904 15.1406 3.05247 14.5021 3.42576 12.8756L3.89905 10.8123C3.9857 10.4225 3.83239 9.87808 3.55242 9.59579L1.89927 7.92898C0.926041 6.94771 1.23934 5.953 2.59919 5.72449L4.72562 5.36827C5.07892 5.30779 5.50553 4.9919 5.66552 4.66257L6.83872 2.29677C7.47865 1.01306 8.51854 1.01306 9.1518 2.29677Z"
+                                  stroke="#03111E"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_706_31414">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            Add to starred
+                          </button>
+                        </div>
+                      )}
 
                       <button
                         className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full"
