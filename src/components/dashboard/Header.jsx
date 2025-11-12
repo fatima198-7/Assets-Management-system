@@ -4,14 +4,13 @@ import { Bell, ChevronDown } from "lucide-react";
 function Header() {
   return (
     <header className="bg-white shadow-md flex justify-end items-center p-4 rounded-2xl">
-      <div></div>
       <div className="flex items-center gap-4">
         <input
           type="text"
           name="text"
           id="search"
           placeholder="Search..."
-          className="border rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border bg-gray-100 border-gray-300  hover:bg-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         {/* Bell Icon */}
         <button className="p-2 bg-gray-100  border border-gray-300  hover:bg-gray-200 rounded-xl">

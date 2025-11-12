@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         <div className="flex bg-gray-100 gap-2 p-2 overflow-hidden relative transition-all max-h-[99vh]">
           {/* Sidebar Wrapper */}
-          <div className="h-screen w-48  bg-white shadow-lg border-2 border-gray-200 z-20 rounded-2xl overflow-hidden">
+          <div className="h-screen w-56  bg-white shadow-lg border-2 border-gray-200 z-20 rounded-2xl overflow-hidden">
             <div className="h-full overflow-y-auto scroll-smooth overflow-x-hidden">
               <Sidebar />
             </div>
@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
 
             {/* jab scroll bar lgana hai tu us k upr k container ko overflow hidden, rounded  */}
             <div className="mt-2 bg-white shadow border-2 border-gray-200 flex-1 rounded-2xl  overflow-hidden">
-              <main className="p-6 h-full overflow-y-auto scroll-smooth">
+              <main className="p-6 h-full overflow-y-auto  scroll-smooth">
                 {children}
               </main>
             </div>

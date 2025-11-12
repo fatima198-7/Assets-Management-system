@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FileText, Trash } from "lucide-react";
+import Card from "@/components/common/Card";
 
 export default function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
@@ -23,7 +24,7 @@ export default function FavoritesPage() {
 
   return (
     <div className="p-6 min-h-[99vh] h-full overflow-y-hidden">
-      <h2 className="text-2xl font-semibold pb-4">Favorites</h2>
+      <Card title="Favorites" />
 
       {favorites.length === 0 ? (
         <div className="flex flex-col items-center justify-center p-8 text-gray-500">

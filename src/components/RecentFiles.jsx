@@ -17,6 +17,7 @@ import ReplaceFile from "./ReplaceFile";
 import CopyLinkModal from "@/components/CopyLinkModal";
 import Rename from "./Rename";
 import FileDetailsDrawer from "@/components/FileDetailsDrawer";
+// import Card from "./common/Card";
 
 function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
   const [copiedIndex, setCopiedIndex] = useState(null);
@@ -62,6 +63,7 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
   return (
     <div className="rounded-lg py-6 relative">
       <div className="overflow-x-auto">
+        {/* <Card title="Recent Files" /> */}
         <table className="min-w-[770px] w-full border-collapse text-sm">
           <thead>
             <tr className="text-black border-b-2 border-gray-200">
@@ -80,7 +82,7 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
             {listItems.map((item, index) => (
               <tr
                 key={index}
-                className={`group transition relative ${
+                className={` transition relative ${
                   selectedRows.includes(index)
                     ? "bg-gray-200"
                     : "odd:bg-white even:bg-sky-50 hover:bg-sky-100"
@@ -125,9 +127,16 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
                     className="text-blue-600 underline cursor-pointer relative group"
                     onClick={() => copyLink(item.link, index)}
                   >
-                    {item.link}
-                    <span className="absolute top-1 left-0 bg-white text-black text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none">
-                      {copiedIndex === index ? "Link Copied" : "Copy Link"}
+                    <div>{item.link}</div>
+
+                    {/* Tooltip with two lines */}
+                    <span className="absolute top-full left-0 mt-1 bg-white text-black text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none shadow whitespace-nowrap">
+                      <div>
+                        {copiedIndex === index ? "Link Copied" : "Copy Link"}
+                      </div>
+                      <div>
+                        {copiedIndex === index ? "Link Copied" : "Full Link"}
+                      </div>
                     </span>
                   </span>
                 </td>
@@ -137,42 +146,8 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
                 </td>
 
                 <td className="p-3 text-right align-middle relative w-48">
-                  <div className="hidden group-hover:flex items-center gap-3 absolute -left-5 top-1/2 -translate-y-1/2 px-2 py-1 z-30">
-                    <img
-                      src="/share.svg"
-                      alt="share"
-                      className={`${iconColor} cursor-pointer`}
-                    />
-                    <img
-                      src="/edit.svg"
-                      alt="edit"
-                      className={`${iconColor}`}
-                    />
-                    <img
-                      src="/download.svg"
-                      alt="download"
-                      className={`${iconColor}`}
-                    />
-                    <img
-                      src="/star.svg"
-                      alt="favorite"
-                      className={`${iconColor} cursor-pointer`}
-                      onClick={() => addToFavorites(item, index)}
-                    />
-                    <img
-                      src="/delete.svg"
-                      alt="delete"
-                      className={`${iconColor}`}
-                    />
-                    <img
-                      src="/block.svg"
-                      alt="block"
-                      className={`${iconColor}`}
-                    />
-                  </div>
-
                   <button
-                    className="p-1 hover:bg-white rounded-full transition z-20 relative"
+                    className="p-1 group hover:bg-white rounded-full transition z-20 relative"
                     onClick={() => {
                       if (enableCopyModal) {
                         setSelectedItem(item);
@@ -182,6 +157,39 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
                       }
                     }}
                   >
+                    <div className="hidden group-hover:flex items-center gap-3 absolute -left-45 top-1/2 -translate-y-1/2 px-2 py-1 z-30">
+                      <img
+                        src="/share.svg"
+                        alt="share"
+                        className={`${iconColor} cursor-pointer`}
+                      />
+                      <img
+                        src="/edit.svg"
+                        alt="edit"
+                        className={`${iconColor}`}
+                      />
+                      <img
+                        src="/download.svg"
+                        alt="download"
+                        className={`${iconColor}`}
+                      />
+                      <img
+                        src="/star.svg"
+                        alt="favorite"
+                        className={`${iconColor} cursor-pointer`}
+                        onClick={() => addToFavorites(item, index)}
+                      />
+                      <img
+                        src="/delete.svg"
+                        alt="delete"
+                        className={`${iconColor}`}
+                      />
+                      <img
+                        src="/block.svg"
+                        alt="block"
+                        className={`${iconColor}`}
+                      />
+                    </div>
                     <MoreVertical size={18} className="text-gray-600" />
                   </button>
 
@@ -225,7 +233,7 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
                         </button>
                         <button
                           onClick={() => {
-                            setSelectedItem(item); // yeh zaroori hai
+                            setSelectedItem(item);
                             setIsRename(true);
                             setMenuIndex(null); // dropdown bhi close ho jaye
                           }}

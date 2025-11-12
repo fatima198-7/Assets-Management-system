@@ -26,7 +26,7 @@ function Page() {
         {/* Edit Button */}
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center justify-center bg-gray-100 p-1 rounded hover:bg-gray-200 transition"
+          className="flex items-center justify-center bg-gray-100 p-1 px-2 rounded hover:bg-gray-200 transition"
         >
           <img src="/user.svg" alt="edit" className="w-4 h-4" />
           <p className="pl-2">Edit</p>

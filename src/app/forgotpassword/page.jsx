@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-export default function SignIn() {
+export default function ForgotPassword() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-md z-50 p-4">
       <div
@@ -19,8 +19,8 @@ export default function SignIn() {
           <div className="flex justify-center items-center">
             <img src="/271.png" alt="img" className="w-[50%]" />
           </div>
-          <h2 className="font-bold text-2xl">Forgot Password</h2>
-          <p className="text-gray-600 text-[]12px">
+          <h2 className="font-bold text-xl">Forgot Password</h2>
+          <p className="text-gray-600 text-[12px]">
             Please provide the emale address Linked to your account.
           </p>
           <div className="flex flex-col">
@@ -39,7 +39,7 @@ export default function SignIn() {
           </div>
           <br />
           <Link
-            href="/resetpassword"
+            href="/otpscreen"
             className="border border-gray-300 block focus:border-blue-500 focus:ring focus:ring-blue-100 p-2  rounded-md w-full outline-none transition text-center bg-blue-500 hover:bg-blue-600 text-white"
           >
             Next

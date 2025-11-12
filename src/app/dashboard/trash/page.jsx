@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FileText, MoreVertical, Trash } from "lucide-react";
+import Card from "@/components/common/Card";
 
 export default function FavoritePage() {
   const [trashList, setTrashList] = useState([]);
@@ -21,7 +22,7 @@ export default function FavoritePage() {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-semibold pb-4">Trash</h2>
+      <Card title="Trash" />
 
       {trashList.length === 0 ? (
         <div className="flex flex-col items-center justify-center p-8  text-gray-500">

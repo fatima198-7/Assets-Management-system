@@ -11,11 +11,13 @@ import {
   Move,
   Ban,
   Copy,
+  Car,
 } from "lucide-react";
 import ShareModal from "@/components/ShareModal";
 import ReplaceFile from "@/components/ReplaceFile";
 import CopyLinkModal from "@/components/CopyLinkModal";
 import Rename from "@/components/Rename";
+import Card from "@/components/common/Card";
 
 function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
   const [copiedIndex, setCopiedIndex] = useState(null);
@@ -61,6 +63,7 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
   return (
     <div className="rounded-lg py-6 relative">
       <div className="overflow-x-auto">
+        <Card title="Folders" />
         <table className="min-w-[770px] w-full border-collapse text-sm">
           <thead>
             <tr className="text-black border-b-2 border-gray-200">
