@@ -15,10 +15,7 @@ export default function SignUp() {
     <div className="absolute top-0 left-0 w-full h-full  z-50 overflow-auto">
       <div className="overflow-y-auto w-full h-full bg-white z-50 flex flex-col md:flex-row items-center justify-center">
         {/* Left Side - Form Section */}
-        <div
-          className="w-full md:w-1/2 p-8 h-screen"
-          style={{ scrollbarGutter: "stable", scrollbarWidth: "thin" }}
-        >
+        <div className="w-full md:w-1/2 h-screen flex flex-col justify-center p-8 overflow-y-auto">
           {/* Logo */}
           <div className="flex gap-2 pb-6">
             <img src="/group.png" alt="logo" className="w-8" />
@@ -69,9 +66,9 @@ export default function SignUp() {
 
           {/* Divider */}
           <div className="flex items-center justify-center py-4">
-            <div className="h-px bg-gray-300 w-1/3"></div>
+            <div className="h-px bg-gray-300 w-1/2"></div>
             <span className="text-gray-400 text-sm px-2">or</span>
-            <div className="h-px bg-gray-300 w-1/3"></div>
+            <div className="h-px bg-gray-300 w-1/2"></div>
           </div>
 
           {/* Sign Up Form */}

@@ -43,10 +43,10 @@ export default function SignIn() {
           </button>
 
           {/* Divider */}
-          <div className="flex items-center justify-center mb-4">
-            <div className="h-px bg-gray-300 w-1/3"></div>
+          <div className="flex items-center justify-center">
+            <div className="h-px bg-gray-300 w-1/2"></div>
             <span className="text-gray-400 text-sm px-2">or</span>
-            <div className="h-px bg-gray-300 w-1/3"></div>
+            <div className="h-px bg-gray-300 w-1/2"></div>
           </div>
 
           {/* Form */}

@@ -51,7 +51,6 @@ function Sidebar() {
       </div>
 
       {/* File Manager Links */}
-      {/* File Manager Links */}
       <div className="border-t border-gray-300 pt-4 flex-1">
         <h4 className="text-gray-700 pl-4 pb-2">File Manager</h4>
         <div className="px-4 flex flex-col gap-2">
