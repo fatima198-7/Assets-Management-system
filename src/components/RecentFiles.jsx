@@ -114,7 +114,7 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
         </table>
       )}
       <div className="overflow-x-auto">
-        {/* ✅ Table Body Always Visible */}
+        {/*   Table Body Always Visible */}
         <table className="min-w-[770px] w-full border-collapse text-sm">
           <tbody>
             {listItems.map((item, index) => (
@@ -168,6 +168,9 @@ function RecentFiles({ iconColor = "text-gray-200", enableCopyModal = false }) {
                     <div>{item.link}</div>
                     <span className="absolute top-0 left-5 mt-1 bg-white text-black text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none shadow whitespace-nowrap">
                       {copiedIndex === index ? "Link Copied" : "Copy Link"}
+                    </span>
+                    <span className="absolute top-5 left-5 mt-1 bg-white text-black text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none shadow whitespace-nowrap">
+                      {copiedIndex === index ? "Full Link Copied" : "Full Link"}
                     </span>
                   </span>
                 </td>
