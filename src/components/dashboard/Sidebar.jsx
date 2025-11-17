@@ -23,10 +23,10 @@ function Sidebar() {
         </div>
 
         {/* Add New */}
-        <div className="flex justify-center border-b border-gray-300 pr-4 pb-2 relative">
+        <div className="flex justify-center border-b border-gray-300 pr-4 pb-4 pt-2 relative">
           <button
             onClick={() => setIsAddNewOpen(!isAddNewOpen)}
-            className="w-[86%] pl-3 py-1 border border-gray-200 rounded-md text-left hover:bg-gray-100 transition"
+            className="w-[86%] pl-3 py-2  border border-gray-400 rounded-md text-left hover:bg-gray-100 transition"
           >
             + Add New
           </button>
@@ -61,7 +61,7 @@ function Sidebar() {
                 </svg>
                 Folder
               </button>
-              <div className=" border-gray-50 pr-4 pb-2 ">
+              <div className=" border-gray-50  ">
                 <Link
                   href="/addNew"
                   className="flex  items-center gap-2 w-full text-left px-3 py-2  hover:bg-gray-100"
@@ -128,7 +128,7 @@ function Sidebar() {
         </div>
 
         {/* Overview */}
-        <div className="px-4">
+        <div className="px-4 py-2">
           <p className="text-gray-700 pb-2">Overview</p>
           <Link
             href="/dashboard"

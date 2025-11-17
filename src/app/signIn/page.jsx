@@ -100,13 +100,13 @@ export default function SignIn() {
 
             <button
               type="submit"
-              className="bg-blue-600 text-white py-2 mt-3 rounded-md font-semibold hover:bg-blue-700 transition"
+              className="bg-blue-600  text-white py-2 mt-3 rounded-md font-semibold hover:bg-blue-700 transition"
             >
               Sign In
             </button>
           </form>
 
-          <p className="text-center text-gray-500 text-sm mt-5">
+          <p className="text-left text-gray-500 text-sm mt-5">
             Don't have an account?{" "}
             <Link href="/signup" className="text-blue-600 hover:underline">
               Sign up

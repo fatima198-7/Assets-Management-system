@@ -51,17 +51,10 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
   };
 
   // const [listItems, setListItems] = useState(Array(6).fill(baseItem));
-  const colors = [
-    "#3b82f6",
-    "#ef4444",
-    "#22c55e",
-    "#eab308",
-    "#a855f7",
-    "#f97316",
-  ];
+  const colors = ["red", "green", "blue-900", "#eab308", "#a855f7", "#f97316"];
 
   const [listItems, setListItems] = useState(
-    Array(6)
+    Array(20)
       .fill(null)
       .map((_, i) => ({
         ...baseItem,
@@ -124,16 +117,31 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
 
                 <td className="p-3 align-middle">
                   <div className="flex items-center gap-2">
-                    <div
-                      className="w-4 h-4 flex items-center justify-center rounded"
-                      style={{ backgroundColor: item.selectedColor }}
-                    >
-                      <img
-                        src="/folder-02.svg"
-                        alt="folder"
-                        className="w-4 h-4"
-                      />
+                    <div className="w-4 h-4 flex items-center justify-center rounded">
+                      <div style={{ color: item.selectedColor }}>
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.64208 17.4998H8.75594C5.41406 17.4998 3.74312 17.4998 2.70494 16.2116C1.66675 14.9235 1.66675 12.8502 1.66675 8.70354V6.01563C1.66675 4.41781 1.66675 3.6189 1.93636 3.01943C2.12855 2.59211 2.41272 2.23951 2.75711 2.00104C3.24024 1.6665 3.8841 1.6665 5.17184 1.6665C5.99684 1.6665 6.40934 1.6665 6.77044 1.83452C7.59489 2.21813 7.93486 3.14743 8.30688 4.07064L8.75594 5.18502M5.83686 5.18502H12.9573C14.4508 5.18502 15.1975 5.18502 15.734 5.62976C15.9662 5.82228 16.1656 6.06968 16.3207 6.35782C16.5624 6.80654 16.6411 7.37386 16.6667 8.26373"
+                            stroke="currentColor"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                          />
+                          <path
+                            d="M3.82967 10.4793C4.18911 9.52164 4.36883 9.04282 4.71956 8.74215C5.28572 8.25678 6.09971 8.33814 6.79725 8.33814H14.377C16.441 8.33814 17.473 8.33814 17.988 9.00224C18.872 10.1423 17.8291 11.9915 17.409 13.1107C16.6559 15.1172 16.2793 16.1204 15.5293 16.7323C14.3865 17.6646 12.7242 17.486 11.3449 17.486H8.28103C5.3285 17.486 3.85224 17.486 3.08452 16.5719C1.66729 14.8844 3.19226 12.1774 3.82967 10.4793Z"
+                            stroke="currentColor"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </div>
                     </div>
+
                     <span>{item.name}</span>
                   </div>
                 </td>
@@ -588,7 +596,9 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
           onClose={() => setIsCopyModalOpen(false)}
         />
       )}
-      <NextPage />
+      <div className="absolute bottom-0 right-0">
+        <NextPage />
+      </div>
     </div>
   );
 }

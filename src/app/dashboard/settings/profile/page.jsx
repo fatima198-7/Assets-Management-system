@@ -49,7 +49,7 @@ function Page() {
               <h2 className="text-lg font-bold mb-4">Jenny wilson</h2>
               <p className="text-[12px] text-gray-400">Admin</p>
               <div className="flex justify-between pt-3 pb-4 border-b border-gray-200">
-                <div className="flex">
+                <div className="flex cursor-pointer">
                   <svg
                     width="24"
                     height="24"
@@ -79,7 +79,7 @@ function Page() {
                 <p>jenny.wilson@mail.com</p>
               </div>
               <div
-                className="flex gap-2 py-4 item-center"
+                className="flex gap-2 py-4 item-center cursor-pointer"
                 onClick={() => setIsEditOpen(true)}
               >
                 <svg
@@ -109,7 +109,7 @@ function Page() {
                 <p className="pointer ">Edit Profile</p>
               </div>
               {/* change password */}
-              <div className="flex gap-3">
+              <div className="flex gap-3 cursor-pointer">
                 <svg
                   width="18"
                   height="18"
@@ -137,7 +137,7 @@ function Page() {
                 </svg>
                 <p>Change Password</p>
               </div>
-              <div className="flex gap-3 py-3">
+              <div className="flex gap-3 py-3 items-center cursor-pointer">
                 <svg
                   width="18"
                   height="18"
@@ -157,7 +157,8 @@ function Page() {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <p className="text-[#FF6B50]">Logout</p>
+                {/* <p className="text-[#FF6B50]">Logout</p> */}
+                <button className="text-[#FF6B50]">Logout</button>
               </div>
             </div>
 
@@ -194,7 +195,7 @@ function Page() {
                 <div className="w-1/2">
                   <label
                     htmlFor="firstname"
-                    className="text-[12px] font-bold text-black"
+                    className="text-[12px] outline-0 font-bold text-black"
                   >
                     First Name
                   </label>
@@ -202,7 +203,7 @@ function Page() {
                     type="text"
                     id="firstname"
                     placeholder="Paul"
-                    className="border border-gray-300 rounded px-3 py-2 w-full text-[12px]"
+                    className="border outline-0 border-gray-300 rounded px-3 py-2 w-full text-[12px]"
                   />
                 </div>
 
@@ -217,7 +218,7 @@ function Page() {
                     type="text"
                     id="lastname"
                     placeholder="Walker"
-                    className="border border-gray-300 rounded px-3 py-2 w-full text-[12px]"
+                    className="border outline-0 border-gray-300 rounded px-3 py-2 w-full text-[12px]"
                   />
                 </div>
               </div>
@@ -234,7 +235,7 @@ function Page() {
                   type="email"
                   id="email"
                   placeholder="example@email.com"
-                  className="border border-gray-300 rounded px-3 py-2 w-full text-[12px]"
+                  className="border outline-0 border-gray-300 rounded px-3 py-2 w-full text-[12px]"
                 />
               </div>
 

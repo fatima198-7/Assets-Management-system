@@ -11,3 +11,6 @@ body {
   /* margin: 3px; */
   /* background: white; */
 }
+button {
+  cursor: pointer;
+}
