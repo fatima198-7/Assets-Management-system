@@ -22,17 +22,19 @@ function Page() {
     <>
       <div className=" flex justify-between pt-3">
         <Card title="Tags" />
-        <button
-          className="px-3 py-2 text-white rounded bg-blue-600 hover:bg-blue-700"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          Click me
-        </button>
+        {items.length > 0 && (
+          <button
+            className="px-3 py-2 text-white rounded bg-blue-600 hover:bg-blue-700"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            Click me
+          </button>
+        )}
       </div>
 
       {isOpen ? (
         <div className="flex flex-col items-center justify-center">
-          <img src="/153.png" alt="tags" />
+          <img src="/153.png" alt="tags" className="w-[200px]" />
           <p className="text-xl font-semibold text-center">
             No Tagged Files Found
           </p>

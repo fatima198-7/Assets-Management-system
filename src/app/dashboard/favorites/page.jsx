@@ -28,15 +28,24 @@ export default function FavoritesPage() {
     <div className="relative p-1 min-h-[99vh] h-full w-full overflow-y-hidden">
       <div className="flex justify-between pb-9">
         <Card title="Favorites" />
-        <button
-          className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          Click me
-        </button>
+        {favorites.length > 0 && (
+          <button
+            className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            Click me
+          </button>
+        )}
       </div>
 
       {isOpen ? (
+        <div className="flex flex-col items-center justify-center p-8 text-gray-500">
+          <img src="/fav.png" alt="empty" className="w-[200px]" />
+          <h2 className="text-center text-xl font-bold text-black">
+            Your Favorite List is Empty
+          </h2>
+        </div>
+      ) : favorites.length === 0 ? (
         <div className="flex flex-col items-center justify-center mt-10">
           <img src="/fav.png" alt="open" className="w-[200px]" />
           <h2 className="text-center text-xl text-black">No Favorites Yet</h2>
@@ -44,13 +53,6 @@ export default function FavoritesPage() {
             Haven't found anything worth starring yet? Add stars to the files
             you want to easily find later.
           </p>
-        </div>
-      ) : favorites.length === 0 ? (
-        <div className="flex flex-col items-center justify-center p-8 text-gray-500">
-          <img src="/fav.png" alt="empty" className="w-[200px]" />
-          <h2 className="text-center text-xl font-bold text-black">
-            Your Favorite List is Empty
-          </h2>
         </div>
       ) : (
         <div className="overflow-x-auto max-h-[99vh] rounded">
