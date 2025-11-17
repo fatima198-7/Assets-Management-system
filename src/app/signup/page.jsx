@@ -18,8 +18,12 @@ export default function SignUp() {
         <div className="w-full md:w-1/2 h-screen flex flex-col justify-center p-8 overflow-y-auto">
           {/* Logo */}
           <div className="flex gap-2 pb-6">
-            <img src="/group.png" alt="logo" className="w-8" />
-            <img src="/group-1.png" alt="logo" className="w-16" />
+            <Link href="/">
+              <div className="flex items-center gap-2 cursor-pointer">
+                <img src="/group.png" alt="logo" className="w-8" />
+                <img src="/group-1.png" alt="logo" className="w-16" />
+              </div>
+            </Link>
           </div>
 
           {/* Headings */}

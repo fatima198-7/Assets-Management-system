@@ -48,10 +48,26 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
     lastModified: "05 Nov 2026",
     link: "https://digidiv-my.sharepoint.com/personal/mudassir_ocyber_work/_layouts/15/2Fdocuments%2FMicrosoft%20Teams%20Chat%20Files%2FO%2Epdf&parentview=?/",
     filesize: "11MB",
-    color: "#6B7280",
   };
 
-  const [listItems, setListItems] = useState(Array(15).fill(baseItem));
+  // const [listItems, setListItems] = useState(Array(6).fill(baseItem));
+  const colors = [
+    "#3b82f6",
+    "#ef4444",
+    "#22c55e",
+    "#eab308",
+    "#a855f7",
+    "#f97316",
+  ];
+
+  const [listItems, setListItems] = useState(
+    Array(6)
+      .fill(null)
+      .map((_, i) => ({
+        ...baseItem,
+        selectedColor: colors[i % colors.length],
+      }))
+  );
 
   const [selectedRows, setSelectedRows] = useState([]); // NEW
 
@@ -108,7 +124,16 @@ function Folders({ iconColor = "text-gray-200", enableCopyModal = false }) {
 
                 <td className="p-3 align-middle">
                   <div className="flex items-center gap-2">
-                    <FileText size={16} style={{ color: folderColor }} />
+                    <div
+                      className="w-4 h-4 flex items-center justify-center rounded"
+                      style={{ backgroundColor: item.selectedColor }}
+                    >
+                      <img
+                        src="/folder-02.svg"
+                        alt="folder"
+                        className="w-4 h-4"
+                      />
+                    </div>
                     <span>{item.name}</span>
                   </div>
                 </td>
